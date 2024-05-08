@@ -1,0 +1,186 @@
+body {
+  background-color: #f2f2f2;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.chat-container {
+  max-width: 80%;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  height: 600px;
+}
+
+.chat-header {
+  font-size: 20px;
+  font-weight: bold;
+  padding: 10px;
+  background-color: #4C83FC;
+  color: #fff;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  text-align: center;
+}
+
+.chat-content {
+  flex: 1;
+  overflow-y: scroll;
+  padding: 10px;
+  clear: both;
+  margin-bottom: 10px;
+}
+
+.message {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  max-width: 70%;
+}
+
+.received .text {
+  background-color: #e5e5ea;
+  color: #000;
+  border-radius: 10px;
+  padding: 10px;
+
+}
+
+.sent .text {
+  background-color: #4C83FC;
+  color: #fff;
+  border-radius: 10px;
+  padding: 10px;
+  align-self: flex-end;
+  text-align: right;
+}
+
+.chat-input {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  align-items: center;
+
+}
+
+.chat-input input[type=text] {
+  flex: 1;
+  border-radius: 20px;
+  outline:none;
+  padding: 10px;
+  border: 1px solid #4C83FC;
+}
+
+.chat-input .send {
+  background-color: #4C83FC;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 10px;
+  margin-left: 10px;
+  cursor: pointer;
+   outline:none;
+}
+
+.chat-input .send:hover {
+  background-color: #4C83FC;
+  border-width: 0px;
+}
+
+
+.chat-content img {
+  float: left;
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
+.message-received{
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+
+}
+
+.message-received .text{
+  max-width: 80%;
+  text-align: left;
+  background-color: #F2F3F5;
+  border-radius: 10px;
+  padding: 10px;
+  float: left;
+  margin-top: 15px;
+  margin-right: 10px;
+}
+
+
+.message-received img {
+  float: left;
+  width: 45px;
+  height: 45px;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
+.message-sent{
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  text-align: left;
+
+}
+
+.message-sent img {
+  float: right;
+  width: 45px;
+  height: 45px;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
+
+.message-sent .text {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 10px;
+  max-width:80%;
+  float: right;
+  text-align: left;
+  margin-top: 15px;
+  margin-right: 10px;
+  background-color: #E3EAF9;
+}
+
+/* 火狐浏览器 */
+/*自定义滚动条样式*/
+.custom_flow {
+  scrollbar-width: thin; /* 可选值：auto, thin, none */
+  scrollbar-color: #FFF; /* 滚动条颜色 */
+}
+
+/* Webkit 浏览器（包括Chrome、Safari等）*/
+.custom_flow::-webkit-scrollbar {
+  width: 2px; /* 滚动条宽度 */
+  height: 2px; /* 滚动条高度 */
+}
+
+/* 如果要设置滚动条按钮（上下箭头）的样式 */
+.custom_flow::-webkit-scrollbar-button {
+  background-color: #f1f1f1;
+}
+
+/* 如果要设置滚动条轨道（滚动条背景）的样式 */
+.custom_flow::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+
+/* 如果要设置滚动条滑块（拖动条）的样式 */
+.custom_flow::-webkit-scrollbar-thumb {
+  background-color: #fff;
+  border-radius: 1px;
+}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>主页</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <style>
+      html, body {
+        height: 100%;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="chat-container">
+      <div class="chat-header">基于ChatGLM3-6B的小说人物关系智能问答</div>
+      <div class="chat-content custom_flow">
+        <div class="message-received">
+          <img src="{% static 'left.jpeg' %}" alt="Avatar">
+          <div class="text">您好，有什么问题需要解答？</div>
+        </div>
+      </div>
+      <div class="chat-input">
+        
+        <input type="text" placeholder="请输入消息" >
+        <button class="send">发送</button>
+      </div>
+    </div>
+    <script src="{% static 'jquery-3.2.1.js' %}"></script>
+  </body>
+  <script>
+    $(document).ready(function() {
+      // 发送消息
+      $('.chat-input .send').on('click', function() {
+        var text = $('.chat-input input[type=text]').val().trim();
+        if(text !== '') {
+          var message = '<div class="message-sent"><div class="text">' + text + '</div><img src="{% static 'right.jpeg' %}" alt="Avatar"></div>';
+          $('.chat-content').append(message);
+          $('.chat-content').scrollTop($('.chat-content')[0].scrollHeight);
+          $('.chat-input input[type=text]').val('');
+
+          var data = {'question': text};
+          $.ajax({
+            type: 'GET',
+            url: '/query/',
+            data: data,
+            success: function(response) {
+                var reply = '<div class="message-received"><img src="{% static 'left.jpeg' %}" alt="Avatar"><div class="text">'+response+'</div></div>';
+                $('.chat-content').append(reply);
+                $('.chat-content').scrollTop($('.chat-content')[0].scrollHeight);
+            },
+            error: function(error) {
+              console.log(error);
+            }
+          });
+        }
+      });
+
+      // 输入框回车事件
+      $('.chat-input input[type=text]').on('keyup', function(event) {
+        if(event.keyCode === 13) {
+          $('.chat-input .send').click();
+        }
+      });
+    });
+  </script>
+</html>
